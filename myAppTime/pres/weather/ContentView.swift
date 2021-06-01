@@ -23,8 +23,8 @@ struct ContentView: View {
         NavigationView {
             
             List {
-                ForEach(viewModel.weatherList.list ?? [], id: \.weather.id) { item in
-                    Text(item.weather?[0].description ?? "nil")
+                ForEach(viewModel.weathers, id: \.id) { item in
+                    Text(item.description )
                 }
             }
             .onAppear {

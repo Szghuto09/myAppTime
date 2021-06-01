@@ -39,16 +39,15 @@ class WeatherListViewModel: ObservableObject {
         weatherApi.getWeather()
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
-            .map {  items in
-                return items.list.map{ item in
-                    //$0 cada elemento del map
-                    if let item = item[0].weather?[0] {
-                        return WeatherViewModel(weather: item)
-                    }
-                    
-                    return WeatherViewModel()
-                } ?? []
+            .map { result in
                 
+                result.list?.map{ listStruct -> WeatherViewModel in
+                    guard let weather = listStruct.weather?[0] else {
+                        return WeatherViewModel()
+                    }
+                    return WeatherViewModel(weather: weather)
+                } ?? []
+
             }.catch { error -> AnyPublisher<[WeatherViewModel], Never> in
                 return Empty(completeImmediately: true).eraseToAnyPublisher()
             }.assign(to: \.weathers, on: self)
