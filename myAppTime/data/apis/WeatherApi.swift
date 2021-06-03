@@ -22,8 +22,7 @@ class WeatherApiImpl: HttpApiRequest<WeatherList>, WeatherApi {
     }
     
     func getWeather() -> AnyPublisher<WeatherList, HttpError> {
-    
-        //devuelve un objeto WeatherList
+        //devuelve 1 - objeto WeatherList
         perfromRequest(method: "GET", path: baseUrl, body: nil)
 
         

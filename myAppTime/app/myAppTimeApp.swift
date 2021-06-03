@@ -14,8 +14,7 @@ struct myAppTimeApp: App {
     var body: some Scene {
     
         WindowGroup {  //un tipo de escena
-            ContentView() //una vista
-        
+            SearchView() //una vista
         }
     }
 }
