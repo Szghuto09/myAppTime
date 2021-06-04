@@ -14,10 +14,13 @@ struct SearchView: View {
     ]
     
     @ObservedObject var locationListViewModel = LocationListViewModel()
+    @ObservedObject var weatherListViewModel =  WeatherListViewModel()
     
     var body: some View {
-        VStack {
-            HStack{
+        NavigationView{
+            
+        List {
+            HStack{  //Solo contiene buscador
                 TextField("Enter Search Text", text: $locationListViewModel.searchText)
                     .padding(.horizontal, 40)
                     .frame(width: UIScreen.main.bounds.width - 110, height: 45, alignment: .leading)
@@ -32,30 +35,29 @@ struct SearchView: View {
                                 .padding(.leading, 16)
                         }
                     )
-                Spacer()
-
-        }.padding().padding(.top, 30)
-            
+        }.padding()
+        //El resto de filas con el contenido
             if locationListViewModel.locationsFound.count > 0 {
                 ScrollView(showsIndicators: false) {
                     LazyVGrid(columns: layout, spacing: 12) {
                         ForEach(locationListViewModel.locationsFound, id: \.id) { item in
-                            ItemView(item: item)
+                           
+                            NavigationLink(destination: WeatherDayTimeView(location: item, weatherListViewModel: weatherListViewModel))
+                            {
+                                ItemView(item: item)
+                            }
+                            
+                            
                         }
                     }
                 }
-            } else {
-                
-                Spacer()
-                
-                Text("Please Search Your Item")
-                
-                Spacer()
-            }
-        }
+            }//fin if
+        }//Fin List
         .background(Color(#colorLiteral(red: 0.9758560663, green: 0.9758560663, blue: 0.9758560663, alpha: 1)))
         .edgesIgnoringSafeArea(.all)
-            
+        .navigationBarTitle("MyAppTime", displayMode: .inline)
+
+        }
     }
 }
     
@@ -65,6 +67,7 @@ struct ItemView: View {
     var body: some View {
         
         ZStack {
+        
             HStack(spacing: 5) {
                 RoundedRectangle(cornerRadius: 10, style: .circular)
                     .fill(Color.gray.opacity(0.4))
@@ -77,11 +80,11 @@ struct ItemView: View {
                         .font(.body)
                         .fontWeight(.semibold)
                    
-                    Text("lat:\(item.lat)")
+                    Text("lat:\(item.location.lat)")
                         .foregroundColor(.gray)
                         .fontWeight(.regular)
                         .font(.caption)
-                    Text("lon:\(item.lon)")
+                    Text("lon:\(item.location.lon)")
                         .foregroundColor(.gray)
                         .fontWeight(.regular)
                         .font(.caption)
@@ -92,6 +95,7 @@ struct ItemView: View {
                 
                 
             }
+            
         }
         .frame(height: 100)
         .background(
@@ -107,7 +111,7 @@ struct ItemView: View {
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchView()
+        EmptyView()
     }
 }
 

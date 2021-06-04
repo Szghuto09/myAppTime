@@ -8,22 +8,37 @@
 import Foundation
 
 class WeatherViewModel: ObservableObject {
+ 
     
-    var id : Int
-    let description : String
+    
+    //Contenido dentro de "list" - "weather"
+//    var id_weather : Int
+//    var description : String
+//    var main : String
+//    var icon: String
+    
+    var dt : Int
+    var dt_txt: String
+    
+    var weatherStruct : [WeatherListStruct]
+    
     
     //Para el preview como ejemplo
     init(){
-        self.id = 0
-        self.description = ""
+        weatherStruct = []
+        self.dt_txt = ""
+
+        self.dt = 0
     }
     
     //Desde el modelo del servidor
-    init(weather: WeatherListStruct) {
-        
-        self.id = weather.id
-        self.description = weather.description
-        
+    init(weather: ListStruct) {
+        self.dt = weather.dt
+        self.dt_txt = weather.dt_txt
+        self.weatherStruct = weather.weather!
     }
+    
+    
+
     
 }
