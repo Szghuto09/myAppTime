@@ -9,8 +9,6 @@ import Foundation
 
 class WeatherViewModel: ObservableObject {
     
-    
-    
     var id : Int
     let description : String
     
@@ -27,7 +25,5 @@ class WeatherViewModel: ObservableObject {
         self.description = weather.description
         
     }
-    
-    
     
 }
