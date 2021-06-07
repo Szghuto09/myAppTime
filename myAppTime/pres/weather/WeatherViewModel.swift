@@ -8,20 +8,11 @@
 import Foundation
 
 class WeatherViewModel: ObservableObject {
- 
-    
-    
-    //Contenido dentro de "list" - "weather"
-//    var id_weather : Int
-//    var description : String
-//    var main : String
-//    var icon: String
-    
+
     var dt : Int
     var dt_txt: String
     
     var weatherStruct : [WeatherListStruct]
-    
     
     //Para el preview como ejemplo
     init(){

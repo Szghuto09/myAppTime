@@ -7,27 +7,32 @@
 
 import SwiftUI
 
-struct WeatherDetails: View {
+struct WeatherDetailsView: View {
     
     @ObservedObject var weatherInfo : WeatherViewModel
     @ObservedObject var location : LocationViewModel
     
+    //private var url = "http://openweathermap.org/img/wn/10d@2x.png"
+    var url2 = "http://openweathermap.org/img/wn/"
+    
     var body: some View {
         VStack{
-        Text("Info Weather \(location.nameCity)")
-            .font(.headline)
-            .bold()
-        
-        }
-        
-        VStack{
-            Text("main: \(weatherInfo.weatherStruct[0].description)")
+            Text("Info Weather \(location.nameCity)")
                 .font(.headline)
+                .bold()
+            
+            Text("main: \(weatherInfo.weatherStruct[0].main)")
+                .font(.subheadline)
+         
             Text("description: \(weatherInfo.weatherStruct[0].description)")
                 .font(.subheadline)
-            
-            
-            Image("icon")
+        }
+     
+    
+        VStack{
+            //Text("description: \(weatherInfo.weatherStruct[0].icon)")
+
+            Image(systemName: "photo")
                 .resizable()
                 .frame(width: 130, height: 130, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 .aspectRatio(contentMode: .fit)
@@ -36,10 +41,8 @@ struct WeatherDetails: View {
                 .shadow(radius: 20)
                 .animation(.easeInOut)
                 .padding()
-        }
-    
-        
-            }
+        }//Fin VStack
+    }
 }
 
 struct WeatherDetails_Previews: PreviewProvider {

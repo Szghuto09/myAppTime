@@ -60,7 +60,7 @@ class LocationListViewModel: ObservableObject {
                 return result.map { item in
                     print("Este es tu item: \(item)")
                     return LocationViewModel(location: item)
-                } ?? []
+                } 
                 
             }.catch { error -> AnyPublisher<[LocationViewModel], Never> in
                 return Empty(completeImmediately: true).eraseToAnyPublisher()
@@ -84,7 +84,7 @@ class LocationListViewModel: ObservableObject {
                 return result.map { item in
                     print("Este es tu item: \(item)")
                     return LocationViewModel(location: item)
-                } ?? []
+                }
                 
             }.catch { error -> AnyPublisher<[LocationViewModel], Never> in
                 return Empty(completeImmediately: true).eraseToAnyPublisher()

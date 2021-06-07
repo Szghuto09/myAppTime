@@ -23,7 +23,6 @@ class WeatherListViewModel: ObservableObject {
     }
     
     func  fetchWeather(location: Location) {
-        
         weatherApi.getWeather(location: location)
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
@@ -31,13 +30,8 @@ class WeatherListViewModel: ObservableObject {
                 print(result)
                 //mapeas list que es una lista
                 //cada objeto que mapeas, es una struct ListStruct
-                
                  return result.list?.map{ listStruct -> WeatherViewModel in
                     return WeatherViewModel(weather: listStruct)
-//                    guard let weather = listStruct?[0] else {
-//                        return WeatherViewModel()
-//                    }
-//                    return WeatherViewModel(weather: weather)
                 } ?? []
                 
             }.catch { error -> AnyPublisher<[WeatherViewModel], Never> in

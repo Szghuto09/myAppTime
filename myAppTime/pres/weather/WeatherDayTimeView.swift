@@ -19,26 +19,23 @@ struct WeatherDayTimeView: View {
                 Text(location.nameCity)
                 
                 List{
-                        Text("Seleccione Hora:")
-                       //40
+                    Text("Seleccione Hora:")
+                    //40
                     if weatherListViewModel.weathers.count > 0 {
-                    
                         ForEach(weatherListViewModel.weathers, id: \.dt) { item in
-                            
-                            NavigationLink(destination: WeatherDetails(weatherInfo: item, location: location))
+                            NavigationLink(destination: WeatherDetailsView(weatherInfo: item, location: location))
                             {
-                            Text(item.dt_txt)
+                                Text(item.dt_txt)
                             }
                         }
                     }
-                            
-                }//Fin Vstack principal
-            
-        }.onAppear(){//Fin NavigationView
-            //item.location es objeto del mini-base de datos
-            weatherListViewModel.fetchWeather(location: location.location)
-        }
-        }
+                }//Fin List
+            }//Fin VStack
+            .onAppear(){
+                //mini-base de datos
+                weatherListViewModel.fetchWeather(location: location.location)
+            }
+        }//Fin NavigationView
 }
 
 struct WeatherDayTime_Previews: PreviewProvider {
