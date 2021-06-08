@@ -6,19 +6,29 @@
 //
 
 import SwiftUI
+import CoreLocation
 
-struct SearchView: View {
+struct SearchView: View { //View principal
     
     let layout = [
         GridItem(.flexible())
     ]
     
+    //@StateObject var locationActualViewModel = LocationActualViewModel()
+        
     @ObservedObject var locationListViewModel = LocationListViewModel()
     @ObservedObject var weatherListViewModel =  WeatherListViewModel()
+    
+     var locationActual = WeatherListViewModel().locationActualModel
+    
+    
+
+    @State private var modal = false
     
     var body: some View {
         NavigationView{
             
+            VStack(alignment: .center) {
         List {
             HStack{  //Solo contiene buscador
                 TextField("Enter Search Text", text: $locationListViewModel.searchText)
@@ -35,7 +45,7 @@ struct SearchView: View {
                                 .padding(.leading, 16)
                         }
                     )
-        }.padding()
+        }
         //El resto de filas con el contenido
             if locationListViewModel.locationsFound.count > 0 {
                 ScrollView(showsIndicators: false) {
@@ -46,18 +56,33 @@ struct SearchView: View {
                             {
                                 ItemView(item: item)
                             }
-                            
-                            
                         }
                     }
                 }
             }//fin if
+        
         }//Fin List
+        .padding()
         .background(Color(#colorLiteral(red: 0.9758560663, green: 0.9758560663, blue: 0.9758560663, alpha: 1)))
         .edgesIgnoringSafeArea(.all)
         .navigationBarTitle("MyAppTime", displayMode: .inline)
-
-        }
+                
+                NavigationLink(destination: WeatherDayTimeView(location: locationActual, weatherListViewModel: weatherListViewModel)) {
+                    VStack{
+                        Button(action: weatherListViewModel.getActualLocation){
+                            Text("Devolver clima actual")
+                                .foregroundColor(.white)
+                            
+                        }.padding()
+                        .background(Color.red)
+                        .cornerRadius(10)
+                        
+                    }
+                }//Fin NavigationLink
+                
+            } //Fin VStack
+        }// Fin NavigationView
+        //.onAppear(perform: weatherListViewModel.getActualLocation)
     }
 }
     
@@ -65,9 +90,7 @@ struct ItemView: View {
     let item: LocationViewModel
     
     var body: some View {
-        
         ZStack {
-        
             HStack(spacing: 5) {
                 RoundedRectangle(cornerRadius: 10, style: .circular)
                     .fill(Color.gray.opacity(0.4))
@@ -92,8 +115,6 @@ struct ItemView: View {
                 
                 Spacer()
                 
-                
-                
             }
             
         }
@@ -109,6 +130,22 @@ struct ItemView: View {
     }
 }
 
+struct TrackingView: View {
+    @EnvironmentObject var locationActualView : LocationActualViewModel
+    
+    var  coordinate : CLLocationCoordinate2D? {
+        locationActualView.lastSeenLocation?.coordinate
+    }
+    var body : some View {
+        VStack {
+            Text("Latitud: \(coordinate?.latitude ?? 0)")
+            Text("Longitude: \(coordinate?.longitude ?? 0)")
+            Text("Country: \(locationActualView.currentPlacemark?.country ?? "")")
+            Text("City: \(locationActualView.currentPlacemark?.administrativeArea ?? "")")
+            
+        }.padding()
+    }
+}
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
         EmptyView()

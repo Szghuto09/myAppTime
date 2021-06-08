@@ -11,9 +11,13 @@ import Combine
 
 //Data
 struct WeatherList : Codable {
+    
     var list : [ListStruct]?
- 
+    var city: CityInfo
+}
 
+struct CityInfo : Codable {
+    var name: String
 }
 
 struct ListStruct: Codable{
@@ -21,6 +25,12 @@ struct ListStruct: Codable{
     var dt : Int   //falseando id
     var weather : [WeatherListStruct]?
     var dt_txt : String
+    var main : MainInfo?
+}
+
+
+struct MainInfo: Codable {
+    var temp : Double
 }
 
 
@@ -30,6 +40,8 @@ struct WeatherListStruct: Codable {
     var main : String
     var description: String
     var icon: String
+    
+    
 }
 
 struct Location: Codable {

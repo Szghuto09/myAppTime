@@ -8,8 +8,9 @@
 import Foundation
 import Combine
 import SwiftUI
+import CoreLocation
 
-class WeatherListViewModel: ObservableObject {
+class WeatherListViewModel:NSObject, ObservableObject {
     
     private  var cancelables = Set<AnyCancellable>()
     
@@ -18,8 +19,33 @@ class WeatherListViewModel: ObservableObject {
     @Published var weathers: [WeatherViewModel] = []
    
     
-    init(){
+    private var locationManager = CLLocationManager()
+    
+    @Published var locationActualModel : LocationViewModel
+   
+    
+    override init(){
+       
         weatherApi = WeatherApiImpl()
+        locationActualModel = LocationViewModel()
+        super.init()
+        locationManager.delegate = self
+    
+    }
+    
+    //pedir permisos + actualizar pos
+    func getActualLocation(){
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+    }
+    
+   
+    func getDataWeatherActualLocation(forCoordinates coordinates: CLLocationCoordinate2D){
+                
+        //OJO:
+        locationActualModel = LocationViewModel(location: .init(id: 0, nameCity: "", lat: coordinates.latitude, lon: coordinates.longitude))
+        //Con la pos obtenida paso a obtener datos del clima
+        self.fetchWeather(location: Location(lat: coordinates.latitude, lon: coordinates.longitude))
     }
     
     func  fetchWeather(location: Location) {
@@ -42,4 +68,20 @@ class WeatherListViewModel: ObservableObject {
     }
     
     
+}
+
+extension WeatherListViewModel: CLLocationManagerDelegate {
+    
+    func locationManager(
+        _ manager: CLLocationManager,
+        didUpdateLocations locations: [CLLocation]) {
+        guard  let location = locations.first else { return }
+        getDataWeatherActualLocation(forCoordinates:  location.coordinate)
+    }
+    
+    func locationManager(
+        _ manager: CLLocationManager,
+        didFailWithError error: Error) {
+        print("Error \(error)")
+    }
 }

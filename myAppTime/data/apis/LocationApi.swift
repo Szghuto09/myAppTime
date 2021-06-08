@@ -9,6 +9,7 @@ import Foundation
 import Combine
 
 
+
 protocol LocationApi {
 
     func getLocation() -> AnyPublisher<[LocationCitiesModel],HttpError>
@@ -18,16 +19,8 @@ protocol LocationApi {
 
 class LocationApiMock: HttpApiRequest<[LocationCitiesModel]>, LocationApi {
     
-    
-    
-     //URl base del servidor
-    //private var urlServer : String
-
-//    init(urlServer: String){
-//        self.urlServer = urlServer
-//    }
     override init(){
-        
+     
     }
 
     //getLocation devuelve una lista de objetos struct LocationCitiesModel
@@ -68,6 +61,8 @@ class LocationApiMock: HttpApiRequest<[LocationCitiesModel]>, LocationApi {
         return Just([cityResult]).setFailureType(to: HttpError.self).eraseToAnyPublisher()
         
     }
+    
+    
 
     }
 

@@ -15,6 +15,8 @@ class LocationListViewModel: ObservableObject {
     
     private var locationApi: LocationApi
     
+    
+    
     @Published var searchText: String = String()
     
     //
@@ -22,10 +24,13 @@ class LocationListViewModel: ObservableObject {
     
     @Published var locationsFound: [LocationViewModel] = []
     
+    
+    
     init(){
         
        //instancia la class  a usar
         locationApi = LocationApiMock()
+       
         
         $searchText
             .debounce(for: .milliseconds(800), scheduler: RunLoop.main) // debounces the string publisher, such that it delays the process of sending request to remote server.
@@ -45,6 +50,8 @@ class LocationListViewModel: ObservableObject {
                 searchItems(searchText: searchField)
             }.store(in: &cancelables)
     }
+    
+    
     
     //obtener todos los datos
     func fecthLocation() {

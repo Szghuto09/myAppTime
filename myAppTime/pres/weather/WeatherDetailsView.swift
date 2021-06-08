@@ -7,41 +7,31 @@
 
 import SwiftUI
 
+
 struct WeatherDetailsView: View {
     
     @ObservedObject var weatherInfo : WeatherViewModel
     @ObservedObject var location : LocationViewModel
     
-    //private var url = "http://openweathermap.org/img/wn/10d@2x.png"
-    var url2 = "http://openweathermap.org/img/wn/"
+   
     
     var body: some View {
-        VStack{
-            Text("Info Weather \(location.nameCity)")
-                .font(.headline)
-                .bold()
+        VStack(alignment: .center){
+            Text("\(location.nameCity)")
+                .font(.largeTitle)
+                .padding()
+           
+            Text("\(Int(weatherInfo.mainInfo.temp - 273.15))ºC")
+                .font(.system(size: 70))
+                .padding()
             
-            Text("main: \(weatherInfo.weatherStruct[0].main)")
+            Text(" \(weatherInfo.weatherStruct[0].description.capitalized)")
                 .font(.subheadline)
-         
-            Text("description: \(weatherInfo.weatherStruct[0].description)")
-                .font(.subheadline)
+            
         }
      
     
-        VStack{
-            //Text("description: \(weatherInfo.weatherStruct[0].icon)")
-
-            Image(systemName: "photo")
-                .resizable()
-                .frame(width: 130, height: 130, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                .aspectRatio(contentMode: .fit)
-                .clipped()
-                .clipShape(RoundedRectangle(cornerRadius: 20))
-                .shadow(radius: 20)
-                .animation(.easeInOut)
-                .padding()
-        }//Fin VStack
+       
     }
 }
 

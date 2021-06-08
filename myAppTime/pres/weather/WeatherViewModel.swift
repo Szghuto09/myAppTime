@@ -14,12 +14,19 @@ class WeatherViewModel: ObservableObject {
     
     var weatherStruct : [WeatherListStruct]
     
+    var mainInfo : MainInfo
+    
+    //---------------------
+    //var nameCity : String
+    
+    
     //Para el preview como ejemplo
     init(){
         weatherStruct = []
         self.dt_txt = ""
-
         self.dt = 0
+        self.mainInfo = MainInfo(temp: 0)
+        //self.nameCity = ""
     }
     
     //Desde el modelo del servidor
@@ -27,6 +34,8 @@ class WeatherViewModel: ObservableObject {
         self.dt = weather.dt
         self.dt_txt = weather.dt_txt
         self.weatherStruct = weather.weather!
+        self.mainInfo = weather.main!
+        
     }
     
     
