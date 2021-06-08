@@ -15,7 +15,6 @@ struct myAppTimeApp: App {
     
         WindowGroup {  //un tipo de escena
             SearchView()
-                //una vista
         }
     }
 }

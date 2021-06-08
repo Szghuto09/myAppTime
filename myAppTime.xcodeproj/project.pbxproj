@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		840E0805266E2F0F00574AEB /* LocationActualViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E0804266E2F0F00574AEB /* LocationActualViewModel.swift */; };
 		8417E939266A155600EF25D3 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8417E933266A155600EF25D3 /* WeatherViewModel.swift */; };
 		8417E93B266A155700EF25D3 /* WeatherListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8417E935266A155600EF25D3 /* WeatherListViewModel.swift */; };
 		8417E93C266A155700EF25D3 /* WeatherDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8417E936266A155600EF25D3 /* WeatherDetailsView.swift */; };
@@ -31,7 +30,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		840E0804266E2F0F00574AEB /* LocationActualViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationActualViewModel.swift; sourceTree = "<group>"; };
 		8417E933266A155600EF25D3 /* WeatherViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		8417E935266A155600EF25D3 /* WeatherListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherListViewModel.swift; sourceTree = "<group>"; };
 		8417E936266A155600EF25D3 /* WeatherDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDetailsView.swift; sourceTree = "<group>"; };
@@ -187,7 +185,6 @@
 			children = (
 				849CF8182668CE1000F0DAFB /* LocationViewModel.swift */,
 				84EDE41C266780D000BF9226 /* LocationListViewModel.swift */,
-				840E0804266E2F0F00574AEB /* LocationActualViewModel.swift */,
 			);
 			path = location;
 			sourceTree = "<group>";
@@ -280,7 +277,6 @@
 				84EDE418266774A100BF9226 /* LocationApi.swift in Sources */,
 				849CF81D2668E33D00F0DAFB /* SearchView.swift in Sources */,
 				844B7B52265E06D200A25D7E /* Models.swift in Sources */,
-				840E0805266E2F0F00574AEB /* LocationActualViewModel.swift in Sources */,
 				8487E3652661074A00CB3D87 /* HttpError.swift in Sources */,
 				8487E3632661069F00CB3D87 /* HttpApiRequest.swift in Sources */,
 				8487E36E2661158000CB3D87 /* WeatherUseCase.swift in Sources */,

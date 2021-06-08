@@ -55,9 +55,7 @@ class LocationListViewModel: ObservableObject {
     
     //obtener todos los datos
     func fecthLocation() {
-        
-        print("Antes... \(locations.count)")
-        print("\n")
+    
         locationApi.getLocation()
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
@@ -75,8 +73,6 @@ class LocationListViewModel: ObservableObject {
             }.assign(to: \.locations, on: self)
             .store(in: &cancelables)
         
-        print("\n")
-        print("Despues... \(locations.count)")
     }
     
     private func searchItems(searchText:String) {

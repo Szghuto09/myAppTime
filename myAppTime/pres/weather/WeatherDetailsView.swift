@@ -12,9 +12,7 @@ struct WeatherDetailsView: View {
     
     @ObservedObject var weatherInfo : WeatherViewModel
     @ObservedObject var location : LocationViewModel
-    
-   
-    
+
     var body: some View {
         VStack(alignment: .center){
             Text("\(location.nameCity)")
@@ -27,11 +25,8 @@ struct WeatherDetailsView: View {
             
             Text(" \(weatherInfo.weatherStruct[0].description.capitalized)")
                 .font(.subheadline)
-            
         }
      
-    
-       
     }
 }
 

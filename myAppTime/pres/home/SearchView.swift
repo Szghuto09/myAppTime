@@ -14,16 +14,11 @@ struct SearchView: View { //View principal
         GridItem(.flexible())
     ]
     
-    //@StateObject var locationActualViewModel = LocationActualViewModel()
-        
     @ObservedObject var locationListViewModel = LocationListViewModel()
     @ObservedObject var weatherListViewModel =  WeatherListViewModel()
     
      var locationActual = WeatherListViewModel().locationActualModel
-    
-    
 
-    @State private var modal = false
     
     var body: some View {
         NavigationView{
@@ -60,7 +55,6 @@ struct SearchView: View { //View principal
                     }
                 }
             }//fin if
-        
         }//Fin List
         .padding()
         .background(Color(#colorLiteral(red: 0.9758560663, green: 0.9758560663, blue: 0.9758560663, alpha: 1)))
@@ -79,10 +73,8 @@ struct SearchView: View { //View principal
                         
                     }
                 }//Fin NavigationLink
-                
             } //Fin VStack
         }// Fin NavigationView
-        //.onAppear(perform: weatherListViewModel.getActualLocation)
     }
 }
     
@@ -130,22 +122,6 @@ struct ItemView: View {
     }
 }
 
-struct TrackingView: View {
-    @EnvironmentObject var locationActualView : LocationActualViewModel
-    
-    var  coordinate : CLLocationCoordinate2D? {
-        locationActualView.lastSeenLocation?.coordinate
-    }
-    var body : some View {
-        VStack {
-            Text("Latitud: \(coordinate?.latitude ?? 0)")
-            Text("Longitude: \(coordinate?.longitude ?? 0)")
-            Text("Country: \(locationActualView.currentPlacemark?.country ?? "")")
-            Text("City: \(locationActualView.currentPlacemark?.administrativeArea ?? "")")
-            
-        }.padding()
-    }
-}
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
         EmptyView()

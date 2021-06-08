@@ -19,7 +19,6 @@ class WeatherApiImpl: HttpApiRequest<WeatherList>, WeatherApi {
     //Constructor
     override init() {
         
-      
         self.baseUrl = "http://api.openweathermap.org/data/2.5/forecast?appid=828971f619b9ba9b1632c23dff01bec5"
     }
     

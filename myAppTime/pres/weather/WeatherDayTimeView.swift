@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct WeatherDayTimeView: View {
-
+    
     @ObservedObject var location : LocationViewModel
     
     @ObservedObject var weatherListViewModel : WeatherListViewModel   //para usar getWeather
-
+    
     var body: some View {
         NavigationView {
             VStack{ //Vstack principal
@@ -36,11 +36,11 @@ struct WeatherDayTimeView: View {
                 weatherListViewModel.fetchWeather(location: location.location)
             }
         }//Fin NavigationView
-}
-
-struct WeatherDayTime_Previews: PreviewProvider {
-    static var previews: some View {
-        EmptyView()
     }
-}
+    
+    struct WeatherDayTime_Previews: PreviewProvider {
+        static var previews: some View {
+            EmptyView()
+        }
+    }
 }
