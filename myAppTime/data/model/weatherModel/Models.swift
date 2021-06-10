@@ -13,12 +13,9 @@ import Combine
 struct WeatherList : Codable {
     
     var list : [ListStruct]?
-    var city: CityInfo
+ 
 }
 
-struct CityInfo : Codable {
-    var name: String
-}
 
 struct ListStruct: Codable{
    //dentro de "list"
@@ -26,21 +23,33 @@ struct ListStruct: Codable{
     var weather : [WeatherListStruct]?
     var dt_txt : String
     var main : MainInfo?
+    var wind : WindInfo?
 }
 
 
 struct MainInfo: Codable {
     var temp : Double
+    var temp_min: Double
+    var temp_max: Double
+    var pressure: Int
+    var sea_level : Int
+    var grnd_level: Int
+    var humidity: Int
+    
 }
 
+struct WindInfo: Codable {
+    var speed : Double
+    var deg : Int
+    var gust : Double
+}
 
 struct WeatherListStruct: Codable {
         
     var id : Int
     var main : String
     var description: String
-    var icon: String
-    
+  
     
 }
 

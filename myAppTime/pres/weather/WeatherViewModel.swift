@@ -7,8 +7,10 @@
 
 import Foundation
 
-class WeatherViewModel: ObservableObject {
 
+
+class WeatherViewModel: ObservableObject {
+    
     var dt : Int
     var dt_txt: String
     
@@ -16,8 +18,7 @@ class WeatherViewModel: ObservableObject {
     
     var mainInfo : MainInfo
     
-    //---------------------
-    //var nameCity : String
+    var windInfo: WindInfo
     
     
     //Para el preview como ejemplo
@@ -25,8 +26,11 @@ class WeatherViewModel: ObservableObject {
         weatherStruct = []
         self.dt_txt = ""
         self.dt = 0
-        self.mainInfo = MainInfo(temp: 0)
-        //self.nameCity = ""
+        self.mainInfo = MainInfo(temp: 0, temp_min: 0, temp_max: 0, pressure: 0, sea_level: 0, grnd_level: 0, humidity: 0)
+        self.windInfo = WindInfo(speed: 0, deg: 0, gust: 0)
+        
+        
+        
     }
     
     //Desde el modelo del servidor
@@ -35,10 +39,11 @@ class WeatherViewModel: ObservableObject {
         self.dt_txt = weather.dt_txt
         self.weatherStruct = weather.weather!
         self.mainInfo = weather.main!
+        self.windInfo = weather.wind!
         
     }
     
     
-
+    
     
 }

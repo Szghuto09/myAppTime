@@ -17,20 +17,25 @@ class WeatherListViewModel:NSObject, ObservableObject {
     private  var weatherApi: WeatherApi
     
     @Published var weathers: [WeatherViewModel] = []
-   
+    
     
     private var locationManager = CLLocationManager()
     
     @Published var locationActualModel : LocationViewModel
-   
+    
+    @Published var currentPlacemark: CLPlacemark?
+    
+    @Published var nameCity : String
+    
     
     override init(){
-       
+        
+        nameCity = ""
         weatherApi = WeatherApiImpl()
         locationActualModel = LocationViewModel()
         super.init()
         locationManager.delegate = self
-    
+        
     }
     
     //pedir permisos + actualizar pos
@@ -39,9 +44,9 @@ class WeatherListViewModel:NSObject, ObservableObject {
         locationManager.startUpdatingLocation()
     }
     
-   
+    
     func getDataWeatherActualLocation(forCoordinates coordinates: CLLocationCoordinate2D){
-                
+        self.nameCity = currentPlacemark?.country ?? ""
         //OJO:
         locationActualModel = LocationViewModel(location: .init(id: 0, nameCity: "", lat: coordinates.latitude, lon: coordinates.longitude))
         //Con la pos obtenida paso a obtener datos del clima
@@ -56,7 +61,7 @@ class WeatherListViewModel:NSObject, ObservableObject {
                 print(result)
                 //mapeas list que es una lista
                 //cada objeto que mapeas, es una struct ListStruct
-                 return result.list?.map{ listStruct -> WeatherViewModel in
+                return result.list?.map{ listStruct -> WeatherViewModel in
                     return WeatherViewModel(weather: listStruct)
                 } ?? []
                 
@@ -77,7 +82,13 @@ extension WeatherListViewModel: CLLocationManagerDelegate {
         didUpdateLocations locations: [CLLocation]) {
         guard  let location = locations.first else { return }
         getDataWeatherActualLocation(forCoordinates:  location.coordinate)
+        
+        let geocoder = CLGeocoder()
+        geocoder.reverseGeocodeLocation(location) { (placemarks, error) in
+            self.currentPlacemark = placemarks?.first
+        }
     }
+    
     
     func locationManager(
         _ manager: CLLocationManager,
