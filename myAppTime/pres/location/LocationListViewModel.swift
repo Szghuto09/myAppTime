@@ -23,7 +23,7 @@ class LocationListViewModel: ObservableObject {
     
     
     
-    init(){
+    init() {
         
         //instancia la class  a usar
         locationApi = LocationApiMock()
@@ -40,7 +40,7 @@ class LocationListViewModel: ObservableObject {
                 
                 return string
             }) // prevents sending numerous requests and sends nil if the count of the characters is less than 1.
-            .compactMap{ $0 } // removes the nil values so the search string does not get passed down to the publisher chain
+            .compactMap { $0 } // removes the nil values so the search string does not get passed down to the publisher chain
             .sink { (_) in
                 //
             } receiveValue: { [self] (searchField) in

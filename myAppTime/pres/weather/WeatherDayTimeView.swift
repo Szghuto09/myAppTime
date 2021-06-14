@@ -15,9 +15,8 @@ private let iconMapCountry = [
     "Alcobendas" :  "spain",
     "Alameda de Osuna" :  "spain",
     "Lima" : "peru",
-    "New York" : "eu",
+    "New York" : "eu"
 ]
-
 
 struct WeatherDayTimeView: View {
     
@@ -25,11 +24,11 @@ struct WeatherDayTimeView: View {
     
     @ObservedObject var weatherListViewModel : WeatherListViewModel   //para usar getWeather
     var body: some View {
-        ZStack{
+        ZStack {
             // NavigationView {
-            VStack(alignment: .center , spacing:10) { //Vstack Principal
+            VStack(alignment: .center, spacing:10) { //Vstack Principal
                 VStack(alignment: .center) {
-                    HStack{
+                    HStack {
                         Image(iconMapCountry[location.nameCity] ?? defaultIcon)
                             .resizable()
                             .frame(width: 50, height: 50)
@@ -39,24 +38,22 @@ struct WeatherDayTimeView: View {
                             .padding(.horizontal)
                         Text(location.nameCity).bold()
                     }
-                    
                 }
-                //.background(Color.yellow)
-                .padding(20) //se aleja del principal
-                
+                .padding(20)
                 VStack { // Para la List
-                    List{
+                    List {
                         Text("Diás disponibles con información del clima")
-                        ForEach(weatherListViewModel.listKeys, id: \.self) { i in // para las cabeceras
-                            Section(header: Text(i)) {
-                                ForEach(weatherListViewModel.hashMapListStruct[i]!, id: \.dt) { item  in  //
-                                    NavigationLink(destination: WeatherDetailsView(weatherInfo: item, location: location))
-                                        { Text(item.dt_txt) }
-                                    
-                                }//Fin ForEach
-                            }//fin seccion
+                        ForEach(weatherListViewModel.listKeys, id: \.self) { elemt in // para las cabeceras
+                            Section(header: Text(elemt)) {
+                                ForEach(weatherListViewModel.hashMapListStruct[elemt]!, id: \.dt) { item  in  //
+                                    NavigationLink(destination: WeatherDetailsView(weatherInfo: item, location: location)) {
+                                        Text(item.dt_txt)
+                                        
+                                    }
+                                }
+                            }
                         }
-                    }//Fin List
+                    }
                 }
                 //.background(Color.green)
                 .padding(9)
@@ -64,7 +61,7 @@ struct WeatherDayTimeView: View {
             }//fin VStack  principal
             //.background(Color.pink)
             .navigationTitle("WeatherApp")
-            .onAppear(){
+            .onAppear() {
                 weatherListViewModel.fetchWeather(location: location.location)
             }
         }

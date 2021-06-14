@@ -14,7 +14,7 @@ private let iconMap = [
     "Rain" : "cloud.rain",
     "Snow" : "snow",
     "Clear" : "sun.max",
-    "Clouds" : "cloud",
+    "Clouds" : "cloud"
 ]
 
 struct WeatherDetailsView: View {
@@ -53,7 +53,7 @@ struct WeatherDetailsView: View {
             
             VStack {
                 List {
-                    Section(header: Text("Main info"), footer:Text("")){
+                    Section(header: Text("Main info"), footer:Text("")) {
                         Text("temp_max: \(Int(weatherInfo.mainInfo.temp_max - 273.15))ºC")
                         Text("temp_min: \(Int(weatherInfo.mainInfo.temp_min - 273.15))ºC")
                         Text("Humidity: \(weatherInfo.mainInfo.humidity)")
@@ -62,7 +62,7 @@ struct WeatherDetailsView: View {
                         Text("sea_level: \(weatherInfo.mainInfo.sea_level)")
                         
                     }
-                    Section(header: Text("Wind info"), footer:Text("")){
+                    Section(header: Text("Wind info"), footer:Text("")) {
                         Text("deg: \(weatherInfo.windInfo.deg) º")
                         Text("gust: \(weatherInfo.windInfo.gust)")
                         Text("speed: \(weatherInfo.windInfo.speed)")

@@ -14,7 +14,7 @@ class LocationViewModel: ObservableObject {
     var location: Location
     
     //Para el preview como ejemplo
-    init(){
+    init() {
         self.id = 0
         self.nameCity = ""
         self.location = Location(lat: 0, lon: 0)

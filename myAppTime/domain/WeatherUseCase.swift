@@ -33,15 +33,15 @@ class WeatherUseCaseImpl : WeatherUseCase {
             //devolver un hasmap
             .map { result in
                 var hasMapResult : [String : [ListStruct]] = [:]
-                result.list?.forEach { i in
-                    let fecha = i.dt_txt.prefix(10)
+                result.list?.forEach { elemt in
+                    let fecha = elemt.dt_txt.prefix(10)
                     //si para esa fecha hay una lista....
                     if (hasMapResult[String(fecha)] != nil) {
-                        hasMapResult[String(fecha)]?.append(i)
+                        hasMapResult[String(fecha)]?.append(elemt)
                     } else {
                         //si no hay lista para esa key... creas una nueva
                         print(fecha)
-                        hasMapResult[String(fecha)] = [i]
+                        hasMapResult[String(fecha)] = [elemt]
                         
                     }
                 }

@@ -35,7 +35,7 @@ class WeatherListViewModel:NSObject, ObservableObject {
     private var weatherUseCase : WeatherUseCase
     
     
-    override init(){
+    override init() {
         
         nameCity = ""
         locationActualModel = LocationViewModel()
@@ -48,13 +48,13 @@ class WeatherListViewModel:NSObject, ObservableObject {
     }
     
     //pedir permisos + actualizar pos
-    func getActualLocation(){
+    func getActualLocation() {
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
     }
     
     
-    func getDataWeatherActualLocation(forCoordinates coordinates: CLLocationCoordinate2D){
+    func getDataWeatherActualLocation(forCoordinates coordinates: CLLocationCoordinate2D) {
         self.nameCity = currentPlacemark?.country ?? ""
         //OJO:
         locationActualModel = LocationViewModel(location: .init(id: 0, nameCity: "", lat: coordinates.latitude, lon: coordinates.longitude))
@@ -91,7 +91,7 @@ class WeatherListViewModel:NSObject, ObservableObject {
                 //mapeas list que es una lista
                 //cada objeto que mapeas, es una struct ListStruct
                 return result.mapValues { values in
-                    values.map{ weather in
+                    values.map { weather in
                         WeatherViewModel(weather: weather)
                     }
                 }

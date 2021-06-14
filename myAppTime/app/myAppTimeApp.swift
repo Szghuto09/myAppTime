@@ -8,12 +8,9 @@
 import SwiftUI
 
 @main
-struct myAppTimeApp: App {
-    
-    
+struct MyAppTimeApp: App {
     var body: some Scene {
-    
-        WindowGroup {  //un tipo de escena
+        WindowGroup {
             SearchView()
         }
     }

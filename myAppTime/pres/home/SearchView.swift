@@ -17,7 +17,7 @@ private let iconMapCountry = [
     "Alcobendas" :  "spain",
     "Alameda de Osuna" :  "spain",
     "Lima" : "peru",
-    "New York" : "eu",
+    "New York" : "eu"
 ]
 
 struct SearchView: View { //View principal
@@ -33,11 +33,11 @@ struct SearchView: View { //View principal
     
     
     var body: some View {
-        NavigationView{
+        NavigationView {
             
             VStack(alignment: .center) {
                 List {
-                    HStack{  //Solo contiene buscador
+                    HStack {  //Solo contiene buscador
                         TextField("Enter Search Text", text: $locationListViewModel.searchText)
                             .padding(40)
                             .frame(width: UIScreen.main.bounds.width - 110, height: 45, alignment: .leading)
@@ -60,8 +60,7 @@ struct SearchView: View { //View principal
                             LazyVGrid(columns: layout, spacing: 12) {
                                 ForEach(locationListViewModel.locationsFound, id: \.id) { item in
                                     
-                                    NavigationLink(destination: WeatherDayTimeView(location: item, weatherListViewModel: weatherListViewModel))
-                                    {
+                                    NavigationLink(destination: WeatherDayTimeView(location: item, weatherListViewModel: weatherListViewModel)) {
                                         ItemView(item: item)
                                     }
                                 }
@@ -73,9 +72,9 @@ struct SearchView: View { //View principal
                 .navigationTitle("WeatherApp")
                 
                 NavigationLink(destination: WeatherDayTimeView(location: locationActual, weatherListViewModel: weatherListViewModel)) {
-                    VStack{
-                        Button(action: weatherListViewModel.getActualLocation){
-                            HStack{
+                    VStack {
+                        Button(action: weatherListViewModel.getActualLocation) {
+                            HStack {
                                 Text("Info clima según GPS")
                                     .foregroundColor(Color.black)
                                     .padding(10)
@@ -145,4 +144,3 @@ struct SearchView_Previews: PreviewProvider {
         EmptyView()
     }
 }
-

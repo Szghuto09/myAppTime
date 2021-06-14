@@ -7,22 +7,15 @@
 
 import Foundation
 
-
-
 class WeatherViewModel: ObservableObject {
-    
     var dt : Int
     var dt_txt: String
-    
     var weatherStruct : [WeatherListStruct]
-    
     var mainInfo : MainInfo
     
     var windInfo: WindInfo
-    
-    
     //Para el preview como ejemplo
-    init(){
+    init() {
         weatherStruct = []
         self.dt_txt = ""
         self.dt = 0
