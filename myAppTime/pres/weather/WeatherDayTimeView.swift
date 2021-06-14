@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-private var listDays = [ "2021-06-10",  "2021-06-11", "2021-06-12","2021-06-13","2021-06-14","2021-06-15"]
-
 private  let defaultIcon = "􀅍"
 private let iconMapCountry = [
     "Madrid" :  "spain",
@@ -27,10 +25,8 @@ struct WeatherDayTimeView: View {
     
     @ObservedObject var weatherListViewModel : WeatherListViewModel   //para usar getWeather
     var body: some View {
-        
-        
         ZStack{
-       // NavigationView {
+            // NavigationView {
             VStack(alignment: .center , spacing:10) { //Vstack Principal
                 VStack(alignment: .center) {
                     HStack{
@@ -51,18 +47,15 @@ struct WeatherDayTimeView: View {
                 VStack { // Para la List
                     List{
                         Text("Diás disponibles con información del clima")
-                        if weatherListViewModel.weathers.count > 0 {
-                            ForEach(listDays, id: \.self) { i in
-                                Section(header: Text(i)) {
-                                    ForEach(weatherListViewModel.weathers, id: \.dt) { item  in
-                                        if item.dt_txt.prefix(10) == i {
-                                            NavigationLink(destination: WeatherDetailsView(weatherInfo: item, location: location))
-                                                { Text(item.dt_txt) }
-                                        }//fin if
-                                    }//Fin ForEach
-                                }//fin seccion
-                            }
-                        }//fin if
+                        ForEach(weatherListViewModel.listKeys, id: \.self) { i in // para las cabeceras
+                            Section(header: Text(i)) {
+                                ForEach(weatherListViewModel.hashMapListStruct[i]!, id: \.dt) { item  in  //
+                                    NavigationLink(destination: WeatherDetailsView(weatherInfo: item, location: location))
+                                        { Text(item.dt_txt) }
+                                    
+                                }//Fin ForEach
+                            }//fin seccion
+                        }
                     }//Fin List
                 }
                 //.background(Color.green)
@@ -72,11 +65,10 @@ struct WeatherDayTimeView: View {
             //.background(Color.pink)
             .navigationTitle("WeatherApp")
             .onAppear(){
-                //mini-base de datos
                 weatherListViewModel.fetchWeather(location: location.location)
             }
-    }
-      //  }//Fin NavigationView
+        }
+        //  }//Fin NavigationView
         
     }
     

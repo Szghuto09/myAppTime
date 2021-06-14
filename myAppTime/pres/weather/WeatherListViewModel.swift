@@ -14,7 +14,7 @@ class WeatherListViewModel:NSObject, ObservableObject {
     
     private  var cancelables = Set<AnyCancellable>()
     
-    private  var weatherApi: WeatherApi
+    
     
     @Published var weathers: [WeatherViewModel] = []
     
@@ -27,12 +27,21 @@ class WeatherListViewModel:NSObject, ObservableObject {
     
     @Published var nameCity : String
     
+    @Published var listKeys : [String]
+    @Published var hashMapListStruct : [String : [WeatherViewModel]]
+    
+    
+    
+    private var weatherUseCase : WeatherUseCase
+    
     
     override init(){
         
         nameCity = ""
-        weatherApi = WeatherApiImpl()
         locationActualModel = LocationViewModel()
+        weatherUseCase = WeatherUseCaseImpl()
+        listKeys = []
+        hashMapListStruct = [:]
         super.init()
         locationManager.delegate = self
         
@@ -54,21 +63,49 @@ class WeatherListViewModel:NSObject, ObservableObject {
     }
     
     func  fetchWeather(location: Location) {
-        weatherApi.getWeather(location: location)
+        
+        //        weatherApi.getWeather(location: location)
+        //            .subscribe(on: DispatchQueue.global(qos: .background))
+        //            .receive(on: DispatchQueue.main)
+        //            .map { result in
+        //                print(result)
+        //                //mapeas list que es una lista
+        //                //cada objeto que mapeas, es una struct ListStruct
+        //                return result.list?.map{ listStruct -> WeatherViewModel in
+        //                    return WeatherViewModel(weather: listStruct)
+        //                } ?? []
+        //            }.catch { error -> AnyPublisher<[WeatherViewModel], Never> in
+        //                return Empty(completeImmediately: true).eraseToAnyPublisher()
+        //
+        //            }.assign(to: \.weathers, on: self)
+        //            .store(in: &cancelables)
+        
+        //[String : [ListStruct]]
+        weatherUseCase.getWeather(location: location)
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
+            //map transformar
             .map { result in
+                
                 print(result)
                 //mapeas list que es una lista
                 //cada objeto que mapeas, es una struct ListStruct
-                return result.list?.map{ listStruct -> WeatherViewModel in
-                    return WeatherViewModel(weather: listStruct)
-                } ?? []
-                
-            }.catch { error -> AnyPublisher<[WeatherViewModel], Never> in
+                return result.mapValues { values in
+                    values.map{ weather in
+                        WeatherViewModel(weather: weather)
+                    }
+                }
+            }.catch { error -> AnyPublisher<[String: [WeatherViewModel]], Never> in
                 return Empty(completeImmediately: true).eraseToAnyPublisher()
                 
-            }.assign(to: \.weathers, on: self)
+            }
+            //sink asignar mas cosas
+            .sink(receiveValue: { items  in
+                // items[0] == ListStruct
+                self.listKeys = Array(items.keys)
+                self.hashMapListStruct = items
+                
+            })
             .store(in: &cancelables)
     }
     

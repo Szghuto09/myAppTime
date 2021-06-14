@@ -29,8 +29,6 @@ class WeatherViewModel: ObservableObject {
         self.mainInfo = MainInfo(temp: 0, temp_min: 0, temp_max: 0, pressure: 0, sea_level: 0, grnd_level: 0, humidity: 0)
         self.windInfo = WindInfo(speed: 0, deg: 0, gust: 0)
         
-        
-        
     }
     
     //Desde el modelo del servidor
@@ -42,8 +40,4 @@ class WeatherViewModel: ObservableObject {
         self.windInfo = weather.wind!
         
     }
-    
-    
-    
-    
 }

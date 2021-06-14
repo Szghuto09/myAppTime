@@ -15,11 +15,8 @@ class LocationListViewModel: ObservableObject {
     
     private var locationApi: LocationApi
     
-    
-    
     @Published var searchText: String = String()
     
-    //
     @Published var locations: [LocationViewModel] = []
     
     @Published var locationsFound: [LocationViewModel] = []
@@ -28,9 +25,9 @@ class LocationListViewModel: ObservableObject {
     
     init(){
         
-       //instancia la class  a usar
+        //instancia la class  a usar
         locationApi = LocationApiMock()
-       
+        
         
         $searchText
             .debounce(for: .milliseconds(800), scheduler: RunLoop.main) // debounces the string publisher, such that it delays the process of sending request to remote server.
@@ -55,7 +52,7 @@ class LocationListViewModel: ObservableObject {
     
     //obtener todos los datos
     func fecthLocation() {
-    
+        
         locationApi.getLocation()
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
@@ -69,16 +66,16 @@ class LocationListViewModel: ObservableObject {
                 
             }.catch { error -> AnyPublisher<[LocationViewModel], Never> in
                 return Empty(completeImmediately: true).eraseToAnyPublisher()
-    
+                
             }.assign(to: \.locations, on: self)
             .store(in: &cancelables)
         
     }
     
     private func searchItems(searchText:String) {
-
-        locationApi.getLocation(nameCity: searchText)
         
+        locationApi.getLocation(nameCity: searchText)
+            
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
             .map { result in
@@ -91,7 +88,7 @@ class LocationListViewModel: ObservableObject {
                 
             }.catch { error -> AnyPublisher<[LocationViewModel], Never> in
                 return Empty(completeImmediately: true).eraseToAnyPublisher()
-    
+                
             }.assign(to: \.locationsFound, on: self)
             .store(in: &cancelables)
     }

@@ -25,7 +25,6 @@ class WeatherApiImpl: HttpApiRequest<WeatherList>, WeatherApi {
     func getWeather(location: Location) -> AnyPublisher<WeatherList, HttpError> {
         //devuelve 1 - objeto WeatherList
         perfromRequest(method: "GET", path: baseUrl + "&lat=\(location.lat)&lon=\(location.lon)", body: nil)
-
-        
     }
+    
 }

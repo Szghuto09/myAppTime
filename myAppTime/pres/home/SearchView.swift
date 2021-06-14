@@ -53,7 +53,7 @@ struct SearchView: View { //View principal
                                 }
                             )
                     }
-                   
+                    
                     //El resto de filas con el contenido
                     if locationListViewModel.locationsFound.count > 0 {
                         ScrollView(showsIndicators: false) {

@@ -11,7 +11,7 @@ import Combine
 
 
 protocol LocationApi {
-
+    
     func getLocation() -> AnyPublisher<[LocationCitiesModel],HttpError>
     func getLocation(nameCity: String) -> AnyPublisher<[LocationCitiesModel],HttpError>
 }
@@ -19,16 +19,16 @@ protocol LocationApi {
 class LocationApiMock: HttpApiRequest<[LocationCitiesModel]>, LocationApi {
     
     override init(){
-     
+        
     }
-
+    
     //getLocation devuelve una lista de objetos struct LocationCitiesModel
     func getLocation() -> AnyPublisher<[LocationCitiesModel],HttpError> {
         
         let city1  = LocationCitiesModel(id: 0,nameCity: "Madrid", lat: -3.70325, lon: 40.4167)
         let city2 = LocationCitiesModel(id: 1,nameCity: "Alcorcon", lat: 40.34582, lon: -3.82487)
         let city3 = LocationCitiesModel(id: 2,nameCity: "Alcobendas", lat: 40.5475, lon: -3.64209)
-       
+        
         return Just([city1,city2,city3]).setFailureType(to: HttpError.self).eraseToAnyPublisher()
     }
     
@@ -52,8 +52,8 @@ class LocationApiMock: HttpApiRequest<[LocationCitiesModel]>, LocationApi {
         list_struct.append(city6)
         list_struct.append(city7)
         
-         var cityResult = LocationCitiesModel(id: 0, nameCity: "", lat: 0, lon: 0)
-    
+        var cityResult = LocationCitiesModel(id: 0, nameCity: "", lat: 0, lon: 0)
+        
         
         for i in list_struct {
             if( i.nameCity == nameCity) {
