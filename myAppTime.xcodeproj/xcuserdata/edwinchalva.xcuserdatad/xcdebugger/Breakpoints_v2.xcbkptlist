@@ -23,22 +23,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B1C9BF1B-88F3-4DCE-AFE9-E213C07031B1"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "myAppTime/pres/location/LocationListViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "fecthLocation()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "27D35F64-ADA7-4821-8328-F8FE948308E2"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -50,6 +34,422 @@
             endingLineNumber = "29"
             landmarkName = "body"
             landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "67D70349-57C9-4EB7-B175-1161975FF292"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myAppTime/pres/location/LocationListViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "searchItems(searchText:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "67D70349-57C9-4EB7-B175-1161975FF292 - 8bbf8d15178d181f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;myAppTime.GeoNameInfo&gt;) -&gt; Swift.Array&lt;myAppTime.LocationViewModel&gt; in myAppTime.LocationListViewModel.searchItems(searchText: Swift.String) -&gt; ()"
+                  moduleName = "myAppTime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edwinchalva/Desktop/Projects_IOs/myAppTime/myAppTime/pres/location/LocationListViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "67D70349-57C9-4EB7-B175-1161975FF292 - 9d202ce7b39fc412"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (myAppTime.GeoNameInfo) -&gt; myAppTime.LocationViewModel in closure #1 (Swift.Array&lt;myAppTime.GeoNameInfo&gt;) -&gt; Swift.Array&lt;myAppTime.LocationViewModel&gt; in myAppTime.LocationListViewModel.searchItems(searchText: Swift.String) -&gt; ()"
+                  moduleName = "myAppTime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edwinchalva/Desktop/Projects_IOs/myAppTime/myAppTime/pres/location/LocationListViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "30">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4585A440-F9C2-4260-A789-0BB5291164C8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myAppTime/pres/location/LocationListViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "searchItems(searchText:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4585A440-F9C2-4260-A789-0BB5291164C8 - 945eb1942c4b90b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "myAppTime.LocationListViewModel.searchItems(searchText: Swift.String) -&gt; ()"
+                  moduleName = "myAppTime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edwinchalva/Desktop/Projects_IOs/myAppTime/myAppTime/pres/location/LocationListViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
+                  offsetFromSymbolStart = "1199">
+               </Location>
+               <Location
+                  uuid = "4585A440-F9C2-4260-A789-0BB5291164C8 - 34ff8b7e20b5e6d9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (myAppTime.LocationCitiesModel) -&gt; Swift.Array&lt;myAppTime.LocationViewModel&gt; in myAppTime.LocationListViewModel.searchItems(searchText: Swift.String) -&gt; ()"
+                  moduleName = "myAppTime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edwinchalva/Desktop/Projects_IOs/myAppTime/myAppTime/pres/location/LocationListViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6464061C-E3C5-4AAA-BDAB-0FF1B8959EF5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myAppTime/pres/location/LocationListViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "searchItems(searchText:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B4067D36-30AA-49D2-8581-F62A9E24BDD2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myAppTime/domain/LocationUseCase.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "getLocation(nameCity:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B4067D36-30AA-49D2-8581-F62A9E24BDD2 - baff1b665b74377b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "myAppTime.LocationUseCaseImpl.getLocation(nameCity: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.Array&lt;myAppTime.LocationCitiesModelDomain&gt;, myAppTime.DomainError&gt;"
+                  moduleName = "myAppTime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edwinchalva/Desktop/Projects_IOs/myAppTime/myAppTime/domain/LocationUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "1037">
+               </Location>
+               <Location
+                  uuid = "B4067D36-30AA-49D2-8581-F62A9E24BDD2 - d0b74351d7de2644"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (myAppTime.LocationCitiesModel) -&gt; Swift.Array&lt;myAppTime.LocationCitiesModelDomain&gt; in myAppTime.LocationUseCaseImpl.getLocation(nameCity: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.Array&lt;myAppTime.LocationCitiesModelDomain&gt;, myAppTime.DomainError&gt;"
+                  moduleName = "myAppTime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edwinchalva/Desktop/Projects_IOs/myAppTime/myAppTime/domain/LocationUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "64">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7DF5F25E-2166-4FD4-AB40-4C9B6A43355C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myAppTime/data/apis/LocationApi.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "getLocation(nameCity:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6CA0076D-43FC-4738-B154-80EA1655C296"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myAppTime/domain/LocationUseCase.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "getLocation(nameCity:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "13594068-DFE2-4077-9D26-41104953819D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myAppTime/domain/LocationUseCase.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "getLocation(nameCity:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4D84BA2C-A0E0-4E61-8B50-955DEFBE598C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myAppTime/domain/LocationUseCase.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "getLocation(nameCity:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4D84BA2C-A0E0-4E61-8B50-955DEFBE598C - baff1b665b743612"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "myAppTime.LocationUseCaseImpl.getLocation(nameCity: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.Array&lt;myAppTime.LocationCitiesModelDomain&gt;, myAppTime.DomainError&gt;"
+                  moduleName = "myAppTime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edwinchalva/Desktop/Projects_IOs/myAppTime/myAppTime/domain/LocationUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "1253">
+               </Location>
+               <Location
+                  uuid = "4D84BA2C-A0E0-4E61-8B50-955DEFBE598C - 3f3d4b41c9f72719"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (myAppTime.HttpError) -&gt; myAppTime.DomainError in myAppTime.LocationUseCaseImpl.getLocation(nameCity: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.Array&lt;myAppTime.LocationCitiesModelDomain&gt;, myAppTime.DomainError&gt;"
+                  moduleName = "myAppTime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edwinchalva/Desktop/Projects_IOs/myAppTime/myAppTime/domain/LocationUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9CB10626-8203-4A06-B0BD-888EEEDEAD0A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myAppTime/data/HttpApiRequest.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "perfromRequest(method:path:body:headers:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9CB10626-8203-4A06-B0BD-888EEEDEAD0A - c782bb0d464efd2f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "default argument 3 of myAppTime.HttpApiRequest.perfromRequest&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Decodable, &#x3c4;_1_0: Swift.Encodable&gt;(method: Swift.String, path: Swift.String, body: Swift.Optional&lt;&#x3c4;_1_0&gt;, headers: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;) -&gt; Combine.AnyPublisher&lt;&#x3c4;_1_0, myAppTime.HttpError&gt;"
+                  moduleName = "myAppTime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edwinchalva/Desktop/Projects_IOs/myAppTime/myAppTime/data/HttpApiRequest.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "14">
+               </Location>
+               <Location
+                  uuid = "9CB10626-8203-4A06-B0BD-888EEEDEAD0A - 5cdd7e0391f6a658"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "myAppTime.HttpApiRequest.perfromRequest&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Decodable, &#x3c4;_1_0: Swift.Encodable&gt;(method: Swift.String, path: Swift.String, body: Swift.Optional&lt;&#x3c4;_1_0&gt;, headers: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;) -&gt; Combine.AnyPublisher&lt;&#x3c4;_1_0, myAppTime.HttpError&gt;"
+                  moduleName = "myAppTime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edwinchalva/Desktop/Projects_IOs/myAppTime/myAppTime/data/HttpApiRequest.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "533">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9DE40C4F-0F8C-4C62-9916-665DC17C554F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myAppTime/data/HttpApiRequest.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "perfromRequest(method:path:body:headers:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "77F7CC72-5D76-4472-8DF2-A823D51AD872"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myAppTime/data/HttpApiRequest.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "perfromRequest(method:path:body:headers:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D7AE104B-FD6F-44CC-9112-8F430C4149D8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myAppTime/data/HttpApiRequest.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "perfromRequest(method:path:body:headers:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "82CD16D7-5F2F-43BB-8026-393758FE408C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myAppTime/data/HttpApiRequest.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "HttpApiRequest"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "82CD16D7-5F2F-43BB-8026-393758FE408C - c782bb0d464efd2f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "default argument 3 of myAppTime.HttpApiRequest.perfromRequest&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Decodable, &#x3c4;_1_0: Swift.Encodable&gt;(method: Swift.String, path: Swift.String, body: Swift.Optional&lt;&#x3c4;_1_0&gt;, headers: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;) -&gt; Combine.AnyPublisher&lt;&#x3c4;_1_0, myAppTime.HttpError&gt;"
+                  moduleName = "myAppTime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edwinchalva/Desktop/Projects_IOs/myAppTime/myAppTime/data/HttpApiRequest.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "14">
+               </Location>
+               <Location
+                  uuid = "82CD16D7-5F2F-43BB-8026-393758FE408C - 5cdd7e0391f6a658"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "myAppTime.HttpApiRequest.perfromRequest&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Decodable, &#x3c4;_1_0: Swift.Encodable&gt;(method: Swift.String, path: Swift.String, body: Swift.Optional&lt;&#x3c4;_1_0&gt;, headers: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;) -&gt; Combine.AnyPublisher&lt;&#x3c4;_1_0, myAppTime.HttpError&gt;"
+                  moduleName = "myAppTime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edwinchalva/Desktop/Projects_IOs/myAppTime/myAppTime/data/HttpApiRequest.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "533">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C380EE3F-D68A-4434-AF4F-6B8E9C5752D6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myAppTime/domain/LocationUseCase.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "getLocation(nameCity:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

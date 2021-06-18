@@ -13,7 +13,7 @@ class LocationListViewModel: ObservableObject {
     
     private var cancelables = Set<AnyCancellable>()
     
-    private var locationApi: LocationApi
+    private var locationUseCase: LocationUseCase
     
     @Published var searchText: String = String()
     
@@ -25,9 +25,7 @@ class LocationListViewModel: ObservableObject {
     
     init() {
         
-        //instancia la class  a usar
-        locationApi = LocationApiMock()
-        
+        locationUseCase = LocationUseCaseImpl()
         
         $searchText
             .debounce(for: .milliseconds(800), scheduler: RunLoop.main) // debounces the string publisher, such that it delays the process of sending request to remote server.
@@ -51,19 +49,15 @@ class LocationListViewModel: ObservableObject {
     
     
     //obtener todos los datos
-    func fecthLocation() {
-        
-        locationApi.getLocation()
+    func fecthLocation(nameCity: String) {
+        // devuelve --> [LocationCitiesModelDomain]
+        locationUseCase.getLocation(nameCity: nameCity)
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
-            .map { result in 
-                print("La tuberia contiene \(result.count) objetos")
-                //print(result[0])
-                return result.map { item in
-                    print("Este es tu item: \(item)")
+            .map { result in
+                result.map { item in
                     return LocationViewModel(location: item)
-                } 
-                
+                }
             }.catch { error -> AnyPublisher<[LocationViewModel], Never> in
                 return Empty(completeImmediately: true).eraseToAnyPublisher()
                 
@@ -74,24 +68,28 @@ class LocationListViewModel: ObservableObject {
     
     private func searchItems(searchText:String) {
         
-        locationApi.getLocation(nameCity: searchText)
-            
+        print(searchText)
+        print("searchItems: \(locationUseCase.getLocation(nameCity: searchText))")
+        //devuelve --> [LocationCitiesModelDomain]
+        locationUseCase.getLocation(nameCity: searchText)
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
             .map { result in
-                print("La tuberia contiene \(result.count) objetos")
-                //print(result[0])
+                //print(result)
                 return result.map { item in
                     print("Este es tu item: \(item)")
+                    //item == LocationCitiesModelDomain
                     return LocationViewModel(location: item)
                 }
-                
             }.catch { error -> AnyPublisher<[LocationViewModel], Never> in
                 return Empty(completeImmediately: true).eraseToAnyPublisher()
                 
             }.assign(to: \.locationsFound, on: self)
             .store(in: &cancelables)
+        print("locationsFound count: \(locationsFound.count)")
     }
+    
+    
     
     
     

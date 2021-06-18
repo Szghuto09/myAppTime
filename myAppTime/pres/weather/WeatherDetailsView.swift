@@ -30,8 +30,6 @@ struct WeatherDetailsView: View {
         
         
         VStack(alignment: .center) { //VStack principal
-            
-            
             VStack(alignment: .center) {
                 Text("\(location.nameCity)")
                     .font(.largeTitle)
@@ -46,7 +44,7 @@ struct WeatherDetailsView: View {
                 Text(" \(weatherInfo.weatherStruct[0].description.capitalized)")
                 
             } //fin 1º Vstack elem
-            .navigationBarTitle(Text("WeatherApp"))
+            //.navigationBarTitle(Text("WeatherApp"))
             //.background(Color.green)
             .padding(20)
             

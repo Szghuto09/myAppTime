@@ -11,13 +11,24 @@ import CoreLocation
 
 private  let defaultIcon = "􀅍"
 private let iconMapCountry = [
-    "Madrid" :  "spain",
-    "Alcorcon" :  "spain",
-    "Alcala de Henares" :  "spain",
-    "Alcobendas" :  "spain",
-    "Alameda de Osuna" :  "spain",
-    "Lima" : "peru",
-    "New York" : "eu"
+    "ES" :  "spain",
+    "CL" : "chile",
+    "CO" : "colombia",
+    "PH" : "filipinas",
+    "US" : "eu",
+    "MX" : "mexico",
+    "AR" : "argentina",
+    "GQ" : "guineaEcuatorial",
+    "ZA" : "sudafrica",
+    "SE" : "sweden",
+    "PR" : "puertoRico",
+    "DO" : "republicaDominicana",
+    "CU" : "cuba",
+    "PY" : "paraguay",
+    "UZ" : "uzbekistan",
+    "NZ" : "newZealand",
+    "CA" : "canada",
+    "PE" : "peru"
 ]
 
 struct SearchView: View { //View principal
@@ -28,9 +39,7 @@ struct SearchView: View { //View principal
     
     @ObservedObject var locationListViewModel = LocationListViewModel()
     @ObservedObject var weatherListViewModel =  WeatherListViewModel()
-    
-    var locationActual = WeatherListViewModel().locationActualModel
-    
+
     
     var body: some View {
         NavigationView {
@@ -39,6 +48,7 @@ struct SearchView: View { //View principal
                 List {
                     HStack {  //Solo contiene buscador
                         TextField("Enter Search Text", text: $locationListViewModel.searchText)
+                            .foregroundColor(Color.black)
                             .padding(40)
                             .frame(width: UIScreen.main.bounds.width - 110, height: 45, alignment: .leading)
                             .background(Color(#colorLiteral(red: 0.9294475317, green: 0.9239223003, blue: 0.9336946607, alpha: 1)))
@@ -59,7 +69,6 @@ struct SearchView: View { //View principal
                         ScrollView(showsIndicators: false) {
                             LazyVGrid(columns: layout, spacing: 12) {
                                 ForEach(locationListViewModel.locationsFound, id: \.id) { item in
-                                    
                                     NavigationLink(destination: WeatherDayTimeView(location: item, weatherListViewModel: weatherListViewModel)) {
                                         ItemView(item: item)
                                     }
@@ -69,37 +78,38 @@ struct SearchView: View { //View principal
                     }//fin if
                 }//Fin List
                 .padding()
-                .navigationTitle("WeatherApp")
+                .navigationTitle("WeatherApp").foregroundColor(.pink)
                 
-                NavigationLink(destination: WeatherDayTimeView(location: locationActual, weatherListViewModel: weatherListViewModel)) {
-                    VStack {
-                        Button(action: weatherListViewModel.getActualLocation) {
-                            HStack {
-                                Text("Info clima según GPS")
-                                    .foregroundColor(Color.black)
-                                    .padding(10)
-                                
-                                Image(systemName: "location")
-                                    .foregroundColor(Color.black)
-                                    .shadow(radius: 20)
-                            }
+
+                NavigationLink(destination: WeatherDayTimeView(location: weatherListViewModel.locationActual, weatherListViewModel: weatherListViewModel)) {
+                        HStack {
+                            Text("Info clima según GPS")
+                                .font(.subheadline)
+                                .bold()
+                                .foregroundColor(Color.pink)
+                                .padding(10)
                             
-                        }.padding(.all)
-                        .cornerRadius(10)
-                    }
-                }//Fin NavigationLink
+                            Image(systemName: "location")
+                                .foregroundColor(Color.pink)
+                                .shadow(radius: 20)
+                                
+                        }
+                    }//Fin NavigationLink
             } //Fin VStack
+            .onAppear(perform:weatherListViewModel.getActualLocation)
         }// Fin NavigationView
     }
 }
 
 struct ItemView: View {
     let item: LocationViewModel
+    @ObservedObject var locationListViewModel = LocationListViewModel()
     
     var body: some View {
         ZStack {
             HStack(spacing: 5) {
-                Image(iconMapCountry[item.nameCity] ?? defaultIcon)
+                
+                Image(iconMapCountry[item.countryCode] ?? defaultIcon)
                     .resizable()
                     .frame(width: 50, height: 50)
                     .clipShape(Circle())
@@ -111,7 +121,6 @@ struct ItemView: View {
                     Text(item.nameCity)
                         .font(.body)
                         .fontWeight(.semibold)
-                    
                     Text("lat:\(item.location.lat)")
                         .foregroundColor(.gray)
                         .fontWeight(.regular)
